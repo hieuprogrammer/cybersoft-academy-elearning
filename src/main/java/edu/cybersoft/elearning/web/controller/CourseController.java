@@ -1,5 +1,7 @@
 package edu.cybersoft.elearning.web.controller;
 
+import edu.cybersoft.elearning.domain.model.Category;
+import edu.cybersoft.elearning.domain.model.Course;
 import edu.cybersoft.elearning.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,11 @@ public class CourseController {
 
     @GetMapping(path = { "" })
     public String getCourses() {
-        return "course";
+        return "Adminity UI/course-list";
+    }
+
+    @PostMapping(path = { "" })
+    public String addCourse(@RequestBody Course course) {
+        return "Adminity UI/course-add";
     }
 }

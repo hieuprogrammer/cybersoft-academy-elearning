@@ -13,11 +13,11 @@ import lombok.Setter;
 public class TargetDto extends BaseEntity {
     private String title;
 
-    private String courseTitle;
+    private Long courseId;
 
-    public TargetDto(Long id, String title, String courseTitle) {
+    public TargetDto(Long id, String title, Long courseId) {
         super(id);
         this.title = title;
-        this.courseTitle = courseTitle;
+        this.courseId = courseId;
     }
 }

@@ -1,5 +1,6 @@
 package edu.cybersoft.elearning.dto.mapper;
 
+import edu.cybersoft.elearning.domain.model.Course;
 import edu.cybersoft.elearning.domain.model.Video;
 import edu.cybersoft.elearning.dto.model.VideoDto;
 
@@ -10,7 +11,8 @@ public class VideoMapper {
                 video.getTitle(),
                 video.getUrl(),
                 video.getTimeCount(),
-                video.getCourse().getTitle());
+                video.getCourse().getId()
+        );
     }
 
     public static Video toVideo(VideoDto videoDto) {
@@ -19,6 +21,7 @@ public class VideoMapper {
         video.setTitle(videoDto.getTitle());
         video.setUrl(videoDto.getUrl());
         video.setTimeCount(videoDto.getTimeCount());
+        video.setCourse(new Course(videoDto.getCourseId()));
         return video;
     }
 }

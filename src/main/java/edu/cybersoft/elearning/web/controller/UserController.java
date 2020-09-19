@@ -1,5 +1,7 @@
 package edu.cybersoft.elearning.web.controller;
 
+import edu.cybersoft.elearning.domain.model.Course;
+import edu.cybersoft.elearning.domain.model.User;
 import edu.cybersoft.elearning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,11 @@ public class UserController {
 
     @GetMapping(path = { "" })
     public String getUsers() {
-        return "profile";
+        return "Adminity UI/user-index";
+    }
+
+    @PostMapping(path = { "" })
+    public String addTarget(@RequestBody User user) {
+        return "Adminity UI/user-add";
     }
 }

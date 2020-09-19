@@ -5,7 +5,12 @@ import edu.cybersoft.elearning.dto.model.RoleDto;
 
 public class RoleMapper {
     public static RoleDto toRoleDto(Role role) {
-        return new RoleDto(role.getId(), role.getName(), role.getDescription());
+        return new RoleDto(
+                role.getId(),
+                role.getName(),
+                role.getDescription(),
+                role.getUsers()
+        );
     }
 
     public static Role toRole(RoleDto roleDto) {
@@ -13,6 +18,7 @@ public class RoleMapper {
         role.setId(roleDto.getId());
         role.setName(roleDto.getName());
         role.setDescription(roleDto.getDescription());
+        role.setUsers(roleDto.getUsers());
         return role;
     }
 }

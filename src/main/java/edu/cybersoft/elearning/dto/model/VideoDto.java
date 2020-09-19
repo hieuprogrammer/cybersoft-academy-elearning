@@ -17,13 +17,13 @@ public class VideoDto extends BaseEntity {
 
     private int timeCount;
 
-    private String courseTitle;
+    private Long courseId;
 
-    public VideoDto(Long id, String title, String url, int timeCount, String courseTitle) {
+    public VideoDto(Long id, String title, String url, int timeCount, Long courseId) {
         super(id);
         this.title = title;
         this.url = url;
         this.timeCount = timeCount;
-        this.courseTitle = courseTitle;
+        this.courseId = courseId;
     }
 }

@@ -3,7 +3,7 @@ package edu.cybersoft.elearning.service.impl;
 import edu.cybersoft.elearning.domain.model.Role;
 import edu.cybersoft.elearning.dto.mapper.RoleMapper;
 import edu.cybersoft.elearning.dto.model.RoleDto;
-import edu.cybersoft.elearning.repo.RoleRepository;
+import edu.cybersoft.elearning.repository.RoleRepository;
 import edu.cybersoft.elearning.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

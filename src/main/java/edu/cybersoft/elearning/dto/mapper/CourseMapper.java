@@ -1,5 +1,6 @@
 package edu.cybersoft.elearning.dto.mapper;
 
+import edu.cybersoft.elearning.domain.model.Category;
 import edu.cybersoft.elearning.domain.model.Course;
 import edu.cybersoft.elearning.dto.model.CourseDto;
 
@@ -17,8 +18,11 @@ public class CourseMapper {
                 course.getPromotionPrice(),
                 course.getDescription(),
                 course.getContent(),
-                course.getCategory().getTitle(),
-                course.getLastUpdate());
+                course.getCategory().getId(),
+                course.getLastUpdate(),
+                course.getUsers(),
+                course.getTargets(),
+                course.getVideos());
     }
 
     public static Course toCourse(CourseDto courseDto) {
@@ -34,7 +38,11 @@ public class CourseMapper {
         course.setPromotionPrice(courseDto.getPromotionPrice());
         course.setDescription(courseDto.getDescription());
         course.setContent(courseDto.getContent());
+        course.setCategory(new Category(courseDto.getCategoryId()));
         course.setLastUpdate(courseDto.getLastUpdate());
+        course.setUsers(courseDto.getUsers());
+        course.setTargets(courseDto.getTargets());
+        course.setVideos(courseDto.getVideos());
         return course;
     }
 }

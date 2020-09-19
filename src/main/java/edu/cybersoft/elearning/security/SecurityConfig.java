@@ -15,8 +15,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .antMatcher("/api/*")
                 .authorizeRequests()
-                .antMatchers("/api/auth/login")
+                .antMatchers("/api/auth/sign-in", "/api/auth/sign-up")
                 .permitAll()
                 .antMatchers("/api/role/*") // <=> action.startsWith("/api/role");
                 .hasAnyRole("ADMIN") // <=> roleName.equals("ROLE_ADMIN");

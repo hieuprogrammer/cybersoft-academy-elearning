@@ -1,9 +1,10 @@
 package edu.cybersoft.elearning.service.impl;
 
+import edu.cybersoft.elearning.domain.model.Category;
 import edu.cybersoft.elearning.domain.model.Course;
 import edu.cybersoft.elearning.dto.mapper.CourseMapper;
 import edu.cybersoft.elearning.dto.model.CourseDto;
-import edu.cybersoft.elearning.repo.CourseRepository;
+import edu.cybersoft.elearning.repository.CourseRepository;
 import edu.cybersoft.elearning.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,7 +56,11 @@ public class CourseServiceImpl implements CourseService {
         course.setPromotionPrice(courseDto.getPromotionPrice());
         course.setDescription(courseDto.getDescription());
         course.setContent(courseDto.getContent());
+        course.setCategory(new Category(courseDto.getCategoryId()));
         course.setLastUpdate(courseDto.getLastUpdate());
+        course.setUsers(courseDto.getUsers());
+        course.setTargets(courseDto.getTargets());
+        course.setVideos(courseDto.getVideos());
         this.courseRepository.save(course);
     }
 

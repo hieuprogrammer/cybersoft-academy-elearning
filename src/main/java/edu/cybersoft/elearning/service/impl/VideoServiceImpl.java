@@ -3,7 +3,7 @@ package edu.cybersoft.elearning.service.impl;
 import edu.cybersoft.elearning.domain.model.Video;
 import edu.cybersoft.elearning.dto.mapper.VideoMapper;
 import edu.cybersoft.elearning.dto.model.VideoDto;
-import edu.cybersoft.elearning.repo.VideoRepository;
+import edu.cybersoft.elearning.repository.VideoRepository;
 import edu.cybersoft.elearning.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

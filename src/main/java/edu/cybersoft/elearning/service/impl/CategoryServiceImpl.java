@@ -3,7 +3,7 @@ package edu.cybersoft.elearning.service.impl;
 import edu.cybersoft.elearning.domain.model.Category;
 import edu.cybersoft.elearning.dto.mapper.CategoryMapper;
 import edu.cybersoft.elearning.dto.model.CategoryDto;
-import edu.cybersoft.elearning.repo.CategoryRepository;
+import edu.cybersoft.elearning.repository.CategoryRepository;
 import edu.cybersoft.elearning.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

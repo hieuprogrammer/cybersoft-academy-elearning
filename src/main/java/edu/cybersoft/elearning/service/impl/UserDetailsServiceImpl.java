@@ -2,7 +2,7 @@ package edu.cybersoft.elearning.service.impl;
 
 import edu.cybersoft.elearning.domain.model.User;
 import edu.cybersoft.elearning.dto.model.UserDetailsDto;
-import edu.cybersoft.elearning.repo.UserRepository;
+import edu.cybersoft.elearning.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

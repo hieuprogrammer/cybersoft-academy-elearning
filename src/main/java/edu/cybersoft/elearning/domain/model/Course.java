@@ -1,5 +1,6 @@
 package edu.cybersoft.elearning.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,14 +41,19 @@ public class Course extends BaseEntity {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private Date lastUpdate;
+    @JsonFormat(pattern = "yyyy-mm-dd")
+    private Date lastUpdate = new Date();
 
-    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<User> users = new ArrayList<User>();
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<Target> targets = new ArrayList<Target>();
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private List<Video> videos = new ArrayList<Video>();
+
+    public Course(Long id) {
+        super(id);
+    }
 }

@@ -19,7 +19,11 @@ public class Video extends BaseEntity {
 
     private int timeCount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "course_id")
     private Course course;
+
+    public Video(Long id) {
+        super(id);
+    }
 }
