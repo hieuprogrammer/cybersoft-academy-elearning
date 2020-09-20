@@ -1,44 +1,44 @@
-<nav class="pcoded-navbar">
+<nav class="pcoded-navbar" xmlns:th="http://www.thymeleaf.org">
     <div class="pcoded-inner-navbar main-menu">
         <ul class="pcoded-item pcoded-left-item">
             <li class="">
-                <a href="/courses">
+                <a th:href="@{/courses}">
                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
             </li>
             <li class="">
-                <a href="/categories">
+                <a th:href="@{/categories}">
                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                     <span class="pcoded-mtext">Danh mục</span>
                 </a>
             </li>
             <li class="">
-                <a href="/courses">
+                <a th:href="@{/courses}">
                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                     <span class="pcoded-mtext">Khóa học</span>
                 </a>
             </li>
             <li class="">
-                <a href="/videos">
+                <a th:href="@{/videos}">
                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
-                    <span class="pcoded-mtext">Video</span>
+                    <span class="pcoded-mtext">Videos</span>
                 </a>
             </li>
             <li class="">
-                <a href="/targets">
+                <a th:href="@{/targets}">
                     <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
                     <span class="pcoded-mtext">Mục tiêu</span>
                 </a>
             </li>
             <li class="">
-                <a href="/users">
+                <a th:href="@{/users}">
                     <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                     <span class="pcoded-mtext">Tài khoản</span>
                 </a>
             </li>
             <li class="">
-                <a href="/roles">
+                <a th:href="@{/roles}">
                     <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                     <span class="pcoded-mtext">Quyền</span>
                 </a>

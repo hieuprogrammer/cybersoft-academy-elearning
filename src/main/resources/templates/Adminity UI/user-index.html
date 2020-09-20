@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>Trang chủ</title>
+        <title>Người dùng</title>
         <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 10]>
@@ -34,7 +34,6 @@
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
-
             <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
@@ -121,7 +120,7 @@
                                         <div class="col-md-12 mb-2">
                                             <div class="page-header-breadcrumb">
                                                 <ul class="breadcrumb-title">
-                                                    <li class="breadcrumb-item"><a href="/admin"> <i
+                                                    <li class="breadcrumb-item"><a th:href="@{/}"> <i
                                                             class="feather icon-home"></i> Trang chủ
                                                     </a></li>
                                                     <li class="breadcrumb-item"><a href="#!">Danh sách tài khoản</a></li>
@@ -132,7 +131,7 @@
                                             <div class="card px-3">
                                                 <div class="card-header px-0 pb-2">
                                                     <h2 class="text-uppercase text-center">Danh sách tài khoản</h2>
-                                                    <a href="user-add.html" class="btn btn-sm btn-primary">Thêm mới</a>
+                                                    <a th:href="@{/users/add}" class="btn btn-sm btn-primary">Thêm mới</a>
                                                 </div>
                                                 <div class="card-block table-border-style">
                                                     <div class="table-responsive">
@@ -147,14 +146,17 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <th>1</th>
-                                                                    <td>Nguyễn Văn Tèo</td>
-                                                                    <td>teonguyen@gmail.com</td>
-                                                                    <td>01234567899</td>
+                                                                <tr th:if="${users.empty}">
+                                                                    <td colspan="4">Không có bản ghi nào được tìm thấy!</td>
+                                                                </tr>
+                                                                <tr th:each="user : ${users}">
+                                                                    <th th:text="${user.id}">1</th>
+                                                                    <td th:text="${user.fullName}">Nguyễn Văn Tèo</td>
+                                                                    <td th:text="${user.email}">teonguyen@gmail.com</td>
+                                                                    <td th:text="${user.phone}">01234567899</td>
                                                                     <td>
-                                                                        <a href="#" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                                                                        <a href="#" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
+                                                                        <a th:href="@{/users/update(id=${user.id})}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                                                                        <a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>

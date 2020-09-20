@@ -29,9 +29,11 @@ public class UserDto extends BaseEntity {
 
     private Long roleId;
 
+    private String roleDescription;
+
     private List<Course> courses = new ArrayList<Course>();
 
-    public UserDto(Long id, String email, String password, String fullName, String avatar, String phone, String address, Long roleId, List<Course> courses) {
+    public UserDto(Long id, String email, String password, String fullName, String avatar, String phone, String address, Long roleId, String roleDescription, List<Course> courses) {
         super(id);
         this.email = email;
         this.password = password;
@@ -40,6 +42,7 @@ public class UserDto extends BaseEntity {
         this.phone = phone;
         this.address = address;
         this.roleId = roleId;
+        this.roleDescription = roleDescription;
         this.courses = courses;
     }
 }

@@ -34,12 +34,12 @@ public class SwaggerConfig {
         );
     }
 
-//    public void addResourceHanlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/**")
-//                .addResourceLocations("/WEB-INF/static/");
-//        registry.addResourceHandler("swagger-ui.html")
-//                .addResourceLocations("classpath:/META-INF/resources/");
-//        registry.addResourceHandler("/webjars")
-//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-//    }
+    public void addResourceHanlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**")
+                .addResourceLocations("/WEB-INF/static/");
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 }
