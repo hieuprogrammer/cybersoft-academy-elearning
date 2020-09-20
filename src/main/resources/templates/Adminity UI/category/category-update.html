@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
     <head>
-        <title>Người dùng</title>
+        <title>Cập nhật danh mục</title>
         <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 10]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
         <!-- Meta -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -30,10 +29,11 @@
         <link rel="stylesheet" type="text/css" th:href="@{/Adminity UI/css/jquery.mCustomScrollbar.css}" />
     </head>
 
-<body>
+    <body>
     <div id="pcoded" class="pcoded">
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
+
             <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
@@ -47,15 +47,17 @@
                             <i class="feather icon-more-horizontal"></i>
                         </a>
                     </div>
-                
+
                     <div class="navbar-container container-fluid">
                         <ul class="nav-left">
                             <li class="header-search">
                                 <div class="main-search morphsearch-search">
                                     <div class="input-group">
-                                        <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
+                                                <span class="input-group-addon search-close"><i
+                                                        class="feather icon-x"></i></span>
                                         <input type="text" class="form-control">
-                                        <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                        <span class="input-group-addon search-btn"><i
+                                                class="feather icon-search"></i></span>
                                     </div>
                                 </div>
                             </li>
@@ -80,11 +82,13 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img th:src="@{/Adminity UI/images/avatar-4.jpg}" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <img th:src="@{/Adminity UI/images/avatar-4.jpg}" class="img-radius"
+                                             alt="User-Profile-Image">
+                                        <span>Hieu Minh Le</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
-                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <ul class="show-notification profile-notification dropdown-menu"
+                                        data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
                                             <a href="#!">
                                                 <i class="feather icon-settings"></i> Settings
@@ -101,7 +105,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                
+
                                 </div>
                             </li>
                         </ul>
@@ -120,48 +124,45 @@
                                         <div class="col-md-12 mb-2">
                                             <div class="page-header-breadcrumb">
                                                 <ul class="breadcrumb-title">
-                                                    <li class="breadcrumb-item"><a th:href="@{/}"> <i
-                                                            class="feather icon-home"></i> Trang chủ
-                                                    </a></li>
-                                                    <li class="breadcrumb-item"><a href="#!">Danh sách tài khoản</a></li>
+                                                    <li class="breadcrumb-item">
+                                                        <a th:href="@{/courses}"> <i class="feather icon-home"></i> Trang chủ</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item">
+                                                        <a th:href="@{/categories}">Danh mục</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item"><a th:href="@{/categories}">Cập nhật danh mục</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
-                                            <div class="card px-3">
-                                                <div class="card-header px-0 pb-2">
-                                                    <h2 class="text-uppercase text-center">Danh sách tài khoản</h2>
-                                                    <a th:href="@{/users/add}" class="btn btn-sm btn-primary">Thêm mới</a>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h2 class="text-uppercase text-center">Cập nhật danh mục</h2>
                                                 </div>
-                                                <div class="card-block table-border-style">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>STT</th>
-                                                                    <th>Họ Tên</th>
-                                                                    <th>Email</th>
-                                                                    <th>Số ĐT</th>
-                                                                    <th>#</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr th:if="${users.empty}">
-                                                                    <td colspan="4">Không có bản ghi nào được tìm thấy!</td>
-                                                                </tr>
-                                                                <tr th:each="user : ${users}">
-                                                                    <th th:text="${user.id}">1</th>
-                                                                    <td th:text="${user.fullName}">Nguyễn Văn Tèo</td>
-                                                                    <td th:text="${user.email}">teonguyen@gmail.com</td>
-                                                                    <td th:text="${user.phone}">01234567899</td>
-                                                                    <td>
-                                                                        <a th:href="@{/users/update(id=${user.id})}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                                                                        <a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div class="card-block">
+                                                    <p th:text="${errorMessage}"></p>
+                                                    <form th:action="@{/categories/update}" method="post" th:object="${categoryDto}">
+                                                        <div class="row">
+                                                            <div class="col-md-6 m-auto">
+                                                                <input type="hidden" th:field="*{id}"/>
+                                                                <div class="form-group">
+                                                                    <label>Tiêu đề</label>
+                                                                    <input type="text" th:field="*{title}" path="title" class="form-control" />
+                                                                    <span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Icon</label>
+                                                                    <input type="file" path="icon" class="form-control" />
+                                                                </div>
+                                                                <div class="form-group mt-3">
+                                                                    <button type="submit"
+                                                                            class="btn btn-primary m-b-0">Lưu lại</button>
+                                                                    <a th:href="@{/categories}"
+                                                                       class="btn btn-secondary text-white">Quay lại</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,6 +192,5 @@
     <script type="text/javascript" th:src="@{/Adminity UI/js/script.js}"></script>
     <script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
-</body>
-
+    </body>
 </html>

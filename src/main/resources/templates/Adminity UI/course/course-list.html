@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Danh mục</title>
+    <title>Khóa học</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -85,7 +85,7 @@
                                     <div class="dropdown-toggle" data-toggle="dropdown">
                                         <img th:src="@{/Adminity UI/images/avatar-4.jpg}" class="img-radius"
                                             alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span>Hieu Minh Le</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"
@@ -128,16 +128,16 @@
                                                     <li class="breadcrumb-item"><a href="/admin"> <i
                                                                 class="feather icon-home"></i> Trang chủ
                                                         </a></li>
-                                                    <li class="breadcrumb-item"><a href="#!">Danh sách danh
-                                                            mục</a></li>
+                                                    <li class="breadcrumb-item"><a href="#!">Danh sách khóa
+                                                            học</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="card px-3">
                                                 <div class="card-header px-0 pb-2">
-                                                    <h2 class="text-uppercase text-center">Danh sách danh mục</h2>
-                                                    <a href="category-add.html" class="btn btn-sm btn-primary">Thêm mới</a>
+                                                    <h2 class="text-uppercase text-center">Danh sách khóa học</h2>
+                                                    <a th:href="@{/courses/add}" class="btn btn-sm btn-primary">Thêm mới</a>
                                                 </div>
                                                 <div class="card-block table-border-style">
                                                     <div class="table-responsive">
@@ -146,20 +146,27 @@
                                                                 <tr>
                                                                     <th>STT</th>
                                                                     <th>Tiêu Đề</th>
-                                                                    <th>Icon</th>
+                                                                    <th>Hình Đại Diện</th>
+                                                                    <th>Số Bài Học</th>
+                                                                    <th>Giá Bán</th>
                                                                     <th>Hành Động</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <th>1</th>
-                                                                    <td>Developer</td>
+                                                                <tr th:if="${courses.empty}">
+                                                                    <td colspan="6">Không có bản ghi nào được tìm thấy!</td>
+                                                                </tr>
+                                                                <tr th:each="course : ${courses}">
+                                                                    <th th:text="${course.id}">1</th>
+                                                                    <td th:text="${course.title}">Javascript</td>
                                                                     <td>
-                                                                        <h4><i class="fa fa-laptop"></i></h4>
+                                                                        <img th:src='@{/Adminity UI/images/1.png}' height="50" class="p-1 border" />
                                                                     </td>
+                                                                    <td th:text="${course.lecturesCount}">20</td>
+                                                                    <td th:text="${course.price}" class="text-danger font-weight-bold">1.200.000 đ</td>
                                                                     <td>
-                                                                        <a href="#" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
-                                                                        <a href="#" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
+                                                                        <a th:href="@{/courses/update(id=${course.id})}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                                                                        <a th:href="@{/courses/delete/{id}(id=${course.id})}" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>

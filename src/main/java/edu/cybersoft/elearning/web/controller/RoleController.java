@@ -24,19 +24,19 @@ public class RoleController {
     public String getRoles(Model model) {
         List<RoleDto> roles = this.roleService.findAll();
         model.addAttribute("roles", roles);
-        return "Adminity UI/role-index";
+        return "Adminity UI/role/role-index";
     }
 
     @GetMapping(path = {"/add"})
     public String addRole(Model model) {
         model.addAttribute("roleDto", new RoleDto());
-        return "Adminity UI/role-add";
+        return "Adminity UI/role/role-add";
     }
 
     @PostMapping(path = {"/add"})
     public String addRole(Model model, @ModelAttribute("roleDto") RoleDto roleDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "Adminity UI/role-add";
+            return "Adminity UI/role/role-add";
         }
         try {
             this.roleService.add(roleDto);
@@ -45,19 +45,19 @@ public class RoleController {
             exception.printStackTrace();
         }
         model.addAttribute("errorMessage", "Thêm mới thất bại!");
-        return "Adminity UI/role-add";
+        return "Adminity UI/role/role-add";
     }
 
     @GetMapping(path = {"/update"})
     public String updateRole(@RequestParam("id") Long id, Model model) {
         model.addAttribute("roleDto", this.roleService.findById(id));
-        return "Adminity UI/role-update";
+        return "Adminity UI/role/role-update";
     }
 
     @PostMapping(path = {"/update"})
     public String updateRole(Model model, @ModelAttribute("roleDto") RoleDto roleDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "Adminity UI/role-update";
+            return "Adminity UI/role/role-update";
         }
 
         try {

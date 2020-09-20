@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Thêm khóa học</title>
+    <title>Mục tiêu</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -85,7 +85,7 @@
                                     <div class="dropdown-toggle" data-toggle="dropdown">
                                         <img th:src="@{/Adminity UI/images/avatar-4.jpg}" class="img-radius"
                                             alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span>Hieu Minh Le</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"
@@ -126,84 +126,48 @@
                                             <div class="page-header-breadcrumb">
                                                 <ul class="breadcrumb-title">
                                                     <li class="breadcrumb-item">
-                                                        <a href="/admin"> <i class="feather icon-home"></i> Trang
-                                                            chủ</a>
+                                                        <a href="/admin">
+                                                            <i class="feather icon-home"></i> Trang chủ
+                                                        </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Thêm mới khóa học</a></li>
+                                                    <li class="breadcrumb-item"><a href="#!">Danh sách kết quả đạt
+                                                            được</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h2 class="text-uppercase text-center">Thêm mới khóa học</h2>
+                                            <div class="card px-3">
+                                                <div class="card-header px-0 pb-2">
+                                                    <h2 class="text-uppercase text-center">Danh sách kết quả đạt được
+                                                    </h2>
+                                                    <a th:href="@{/targets/add}" class="btn btn-sm btn-primary">Thêm
+                                                        mới</a>
                                                 </div>
-                                                <div class="card-block">
-                                                    <form action="#" method="post">
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Tiêu đề</label>
-                                                                    <input type="text" name="title"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Số bài học</label>
-                                                                    <input type="number" name="leturesCount"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Số giờ học</label>
-                                                                    <input type="number" name="hourCount"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Danh mục</label>
-                                                                    <select name="categoryId" class="form-control">
-                                                                        <option>Frontend</option>
-                                                                        <option>Backend</option>
-                                                                        <option>Mobile</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label>Giá bán</label>
-                                                                    <input type="text" name="price"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Giảm giá (%)</label>
-                                                                    <input type="number" name="discount"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Mô tả</label>
-                                                                    <input type="text" name="description"
-                                                                        class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Hình đại diện</label>
-                                                                    <input type="text" name="image"
-                                                                        class="form-control" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <label>Nội dung</label>
-                                                                <textarea name="content" class="form-control"
-                                                                    rows="5"></textarea>
-                                                            </div>
-                                                            <div class="col-12 mt-3">
-                                                                <div class="form-group">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary m-b-0">Lưu lại</button>
-                                                                    <a href="./course-list.html"
-                                                                        class="btn btn-secondary text-white">Quay
-                                                                        lại</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                <div class="card-block table-border-style">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>STT</th>
+                                                                    <th>Tiêu Đề</th>
+                                                                    <th>Hành Động</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:if="${targets.empty}">
+                                                                    <td colspan="3">Không có bản ghi nào được tìm thấy!</td>
+                                                                </tr>
+                                                                <tr th:each="target : ${targets}">
+                                                                    <td th:text="${target.id}">1</td>
+                                                                    <td th:text="${target.title}">Mục tiêu 01</td>
+                                                                    <td>
+                                                                        <a th:href="@{/targets/update(id=${target.id})}" class="btn btn-sm btn-info btn-round py-1 font-weight-bold">Sửa</a>
+                                                                        <a th:href="@{/targets/delete/{id}(id=${target.id})}" class="btn btn-sm btn-danger btn-round py-1 font-weight-bold">Xóa</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,4 +199,5 @@
     <script src="http://cdn.ckeditor.com/4.4.7/standard-all/adapters/jquery.js"></script>
 </body>
 
+</html>
 </html>

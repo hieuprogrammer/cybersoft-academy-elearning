@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class Target extends BaseEntity {
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "course_id")
     private Course course;
 

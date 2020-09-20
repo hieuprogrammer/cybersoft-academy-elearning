@@ -85,7 +85,7 @@
                                 <div class="dropdown-toggle" data-toggle="dropdown">
                                     <img th:src="@{/Adminity UI/images/avatar-4.jpg}" class="img-radius"
                                          alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    <span>Hieu Minh Le</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </div>
                                 <ul class="show-notification profile-notification dropdown-menu"
@@ -186,7 +186,7 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Avatar</label>
-                                                                <input type="text" th:field="*{avatar}" class="form-control" />
+                                                                <input type="file" th:field="*{avatar}" class="form-control" />
                                                                 <span class="text-danger" th:if="${#fields.hasErrors('avatar')}" th:errors="*{avatar}"></span>
                                                             </div>
                                                         </div>

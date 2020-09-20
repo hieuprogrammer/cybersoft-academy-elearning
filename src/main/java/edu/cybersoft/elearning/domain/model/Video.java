@@ -19,7 +19,7 @@ public class Video extends BaseEntity {
 
     private int timeCount;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "course_id")
     private Course course;
 
